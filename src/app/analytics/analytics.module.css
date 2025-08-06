@@ -1,0 +1,450 @@
+/* Analytics 페이지 컨테이너 */
+.analytics {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: white;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+/* 메인 콘텐츠 영역 */
+.mainContent {
+  flex: 1;
+  transition: all 0.3s ease;
+  margin-left: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarOpen {
+  margin-left: 0;
+}
+
+/* 헤더 스타일 */
+.header {
+  position: relative;
+  z-index: 10;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #a855f7, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+.periodSelector {
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  padding: 0.5rem 1rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.select:focus {
+  outline: none;
+  border-color: rgba(147, 51, 234, 0.5);
+  box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
+}
+
+/* 메인 콘텐츠 */
+.main {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+/* 지표 그리드 */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.metricCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(147, 51, 234, 0.2);
+}
+
+.purple {
+  background: rgba(147, 51, 234, 0.1);
+  border-color: rgba(147, 51, 234, 0.2);
+}
+
+.cyan {
+  background: rgba(34, 211, 238, 0.1);
+  border-color: rgba(34, 211, 238, 0.2);
+}
+
+.green {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.orange {
+  background: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.2);
+}
+
+.metricIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #a855f7;
+}
+
+.cyan .metricIcon {
+  color: #22d3ee;
+}
+
+.green .metricIcon {
+  color: #22c55e;
+}
+
+.orange .metricIcon {
+  color: #f97316;
+}
+
+.metricContent h3 {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricValue {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.metricChange {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #22c55e;
+}
+
+.trendIcon {
+  font-size: 1rem;
+}
+
+/* 차트 섹션 */
+.chartsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chartCard {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #a855f7;
+  margin-bottom: 1rem;
+}
+
+/* 파이 차트 */
+.pieChart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1rem;
+}
+
+.pieSlice {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pieCenter {
+  width: 60%;
+  height: 60%;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pieLabel {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* 바 차트 */
+.barChart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.bar {
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar:hover {
+  transform: scale(1.02);
+}
+
+.barLabel {
+  color: white;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.barValue {
+  color: white;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* 상세 데이터 섹션 */
+.detailsSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.topPages,
+.realtimeStats {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #a855f7;
+  margin-bottom: 1rem;
+}
+
+.pageList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pageItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(147, 51, 234, 0.1);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.pageItem:hover {
+  background: rgba(147, 51, 234, 0.15);
+  transform: translateX(5px);
+}
+
+.pageInfo {
+  flex: 1;
+}
+
+.pageName {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.pageViews {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.pageChange {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.positive {
+  color: #22c55e;
+}
+
+.negative {
+  color: #ef4444;
+}
+
+/* 실시간 활동 */
+.activityFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(147, 51, 234, 0.1);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.activityItem:hover {
+  background: rgba(147, 51, 234, 0.15);
+}
+
+.activityDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.activityContent {
+  flex: 1;
+}
+
+.activityUser {
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.activityAction {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.activityTime {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .sidebarOpen {
+    margin-left: 0;
+  }
+  
+  .detailsSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .chartsSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pieChart {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .pieLabel {
+    font-size: 1.25rem;
+  }
+} 
