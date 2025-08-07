@@ -16,6 +16,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .sidebarOpen {
@@ -56,6 +58,8 @@
 .main {
   padding: 1.5rem;
   flex: 1;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .settingsContainer {
@@ -68,6 +72,7 @@
 .tabsContainer {
   position: relative;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 /* 탭 네비게이션 */
@@ -82,6 +87,7 @@
   -ms-overflow-style: none; /* IE and Edge */
   scroll-behavior: smooth;
   position: relative;
+  width: 100%;
 }
 
 .tabs::-webkit-scrollbar {
@@ -146,6 +152,7 @@
   padding: 2rem;
   margin-bottom: 2rem;
   overflow: hidden;
+  width: 100%;
 }
 
 .section {
@@ -176,6 +183,7 @@
   border: 1px solid rgba(147, 51, 234, 0.1);
   transition: all 0.3s ease;
   min-height: 80px;
+  width: 100%;
 }
 
 .settingItem:hover {
@@ -213,10 +221,12 @@
   border-radius: 0.75rem;
   border: 1px solid rgba(147, 51, 234, 0.2);
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .profileAvatar {
   position: relative;
+  flex-shrink: 0;
 }
 
 .editAvatarButton {
@@ -233,6 +243,7 @@
 
 .profileInfo {
   flex: 1;
+  min-width: 0;
 }
 
 .profileName {
@@ -327,6 +338,8 @@
   display: flex;
   align-items: center;
   min-width: 250px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .passwordToggle {
@@ -345,6 +358,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* 테마 옵션 */
@@ -352,6 +366,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .themeOption {
@@ -369,6 +384,8 @@
   min-width: 100px;
   user-select: none;
   outline: none;
+  flex: 1;
+  min-width: 120px;
 }
 
 .themeOption:hover {
@@ -394,6 +411,7 @@
 .themeOption span {
   font-size: 0.75rem;
   font-weight: 500;
+  text-align: center;
 }
 
 /* 가시성 옵션 */
@@ -401,6 +419,7 @@
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .visibilityOption {
@@ -417,6 +436,9 @@
   font-size: 0.875rem;
   user-select: none;
   outline: none;
+  flex: 1;
+  min-width: 120px;
+  justify-content: center;
 }
 
 .visibilityOption:hover {
@@ -447,6 +469,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.875rem;
+  white-space: nowrap;
 }
 
 .actionButton:hover {
@@ -465,6 +488,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.875rem;
+  white-space: nowrap;
 }
 
 .dangerButton:hover {
@@ -479,6 +503,8 @@
   flex-direction: column;
   gap: 0.5rem;
   min-width: 200px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .sliderLabels {
@@ -493,6 +519,7 @@
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
+  width: 100%;
 }
 
 .saveButton {
@@ -507,6 +534,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .saveButton:hover {
@@ -526,6 +554,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .cancelButton:hover {
@@ -543,6 +572,14 @@
   .settingsContainer {
     max-width: 100%;
   }
+  
+  .main {
+    padding: 1rem;
+  }
+  
+  .header {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -550,6 +587,14 @@
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .subtitle {
+    font-size: 0.875rem;
   }
   
   .tabsContainer {
@@ -564,6 +609,7 @@
   .tab {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
+    min-width: auto;
   }
   
   .content {
@@ -578,21 +624,43 @@
     min-height: auto;
   }
   
+  .settingInfo {
+    width: 100%;
+  }
+  
   .profileHeader {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
+  }
+  
+  .profileAvatar {
+    align-self: center;
   }
   
   .themeOptions {
     justify-content: center;
+    gap: 0.75rem;
+  }
+  
+  .themeOption {
+    min-width: 100px;
+    flex: 1;
   }
   
   .visibilityOptions {
     justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .visibilityOption {
+    min-width: 100px;
+    flex: 1;
   }
   
   .actions {
     flex-direction: column;
+    gap: 0.75rem;
   }
   
   .saveButton,
@@ -600,9 +668,40 @@
     width: 100%;
     justify-content: center;
   }
+  
+  .input,
+  .select,
+  .passwordInput {
+    max-width: 100%;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .sliderContainer {
+    max-width: 100%;
+    min-width: auto;
+  }
+  
+  .securityStatus {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .main {
+    padding: 0.75rem;
+  }
+  
+  .header {
+    padding: 0.75rem;
+  }
+  
+  .title {
+    font-size: 1.125rem;
+  }
+  
   .tabsContainer {
     margin-bottom: 1rem;
   }
@@ -626,11 +725,6 @@
     gap: 0.75rem;
   }
   
-  .input {
-    min-width: 150px;
-    max-width: 100%;
-  }
-  
   .settingInfo h4 {
     font-size: 1rem;
   }
@@ -642,20 +736,96 @@
   .themeOptions {
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
   }
   
   .themeOption {
     width: 100%;
     max-width: 200px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  
+  .themePreview {
+    width: 30px;
+    height: 30px;
   }
   
   .visibilityOptions {
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
   }
   
   .visibilityOption {
     width: 100%;
+    max-width: 200px;
     justify-content: center;
+  }
+  
+  .profileHeader {
+    padding: 1rem;
+  }
+  
+  .profileName {
+    font-size: 1.25rem;
+  }
+  
+  .profileEmail {
+    font-size: 0.875rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.125rem;
+  }
+  
+  .actions {
+    gap: 0.5rem;
+  }
+  
+  .saveButton,
+  .cancelButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .main {
+    padding: 0.5rem;
+  }
+  
+  .header {
+    padding: 0.5rem;
+  }
+  
+  .content {
+    padding: 0.75rem;
+  }
+  
+  .settingItem {
+    padding: 0.75rem;
+  }
+  
+  .tab {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1rem;
+  }
+  
+  .settingInfo h4 {
+    font-size: 0.9rem;
+  }
+  
+  .settingInfo p {
+    font-size: 0.75rem;
   }
 } 

@@ -14,6 +14,28 @@ body {
     sans-serif;
   background: #000;
   color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 반응형 기본 설정 */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
 }
 
 /* 네온 텍스트 효과 */
@@ -263,6 +285,16 @@ body {
 }
 
 /* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .welcomeText {
+    font-size: 1.75rem !important;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem !important;
+  }
+}
+
 @media (max-width: 768px) {
   .welcomeText {
     font-size: 1.5rem !important;
@@ -281,6 +313,48 @@ body {
   
   .buttonLabel {
     font-size: 0.625rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeText {
+    font-size: 1.25rem !important;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem !important;
+  }
+  
+  .actionButton {
+    padding: 0.4rem;
+    min-width: 36px;
+    height: 36px;
+    font-size: 0.7rem;
+  }
+  
+  .buttonLabel {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .welcomeText {
+    font-size: 1.125rem !important;
+  }
+  
+  .subtitle {
+    font-size: 0.75rem !important;
+  }
+  
+  .actionButton {
+    padding: 0.35rem;
+    min-width: 32px;
+    height: 32px;
+    font-size: 0.65rem;
+  }
+  
+  .buttonLabel {
+    font-size: 0.55rem;
   }
 }
 
@@ -354,4 +428,30 @@ body {
   background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460, #533483);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+  .actionButton:hover {
+    transform: none;
+  }
+  
+  .statCard:hover, .chartCard:hover {
+    transform: none;
+  }
+  
+  .hover-glow:hover {
+    transform: none;
+  }
+}
+
+/* 고해상도 디스플레이 최적화 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .neon-text {
+    text-shadow: 
+      0 0 2px currentColor,
+      0 0 4px currentColor,
+      0 0 6px currentColor,
+      0 0 8px currentColor;
+  }
 }

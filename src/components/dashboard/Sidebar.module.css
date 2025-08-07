@@ -108,6 +108,7 @@
 
 .userDetails {
   flex: 1;
+  min-width: 0;
 }
 
 .userActions {
@@ -155,16 +156,125 @@
   .userSection {
     padding: 0.75rem;
   }
+  
+  .navigation {
+    padding: 0.75rem 0;
+  }
+  
+  .listItem {
+    margin: 0.2rem 0;
+  }
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 0.75rem;
+  }
+  
+  .logo {
+    font-size: 1.125rem;
+  }
+  
   .userInfo {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
   }
   
+  .userDetails {
+    width: 100%;
+  }
+  
   .userActions {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .userActionButton {
+    flex: 1;
+    min-width: 40px;
+  }
+  
+  .navigation {
+    padding: 0.5rem 0;
+  }
+  
+  .listItem {
+    margin: 0.15rem 0;
+  }
+  
+  .listItemIcon {
+    min-width: 35px;
+  }
+  
+  .listItemText {
+    margin-left: 0.4rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .userSection {
+    padding: 0.5rem;
+  }
+  
+  .userInfo {
+    gap: 0.4rem;
+  }
+  
+  .userActions {
+    gap: 0.3rem;
+  }
+  
+  .navigation {
+    padding: 0.4rem 0;
+  }
+  
+  .listItem {
+    margin: 0.1rem 0;
+  }
+  
+  .listItemIcon {
+    min-width: 30px;
+  }
+  
+  .listItemText {
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    padding: 0.4rem;
+  }
+  
+  .logo {
+    font-size: 0.9rem;
+  }
+  
+  .userSection {
+    padding: 0.4rem;
+  }
+  
+  .navigation {
+    padding: 0.3rem 0;
+  }
+  
+  .listItemIcon {
+    min-width: 28px;
+  }
+  
+  .listItemText {
+    margin-left: 0.25rem;
+    font-size: 0.75rem;
   }
 } 
